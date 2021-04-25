@@ -1,0 +1,99 @@
+<ion-header>
+  <section style="position: relative;width: 100%;background-color: aliceblue;height: 25vh;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+    <section style="width: 100%;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+        <!-- <img src="../../assets/img/Vector-1.png" style="width: 7vw;"> -->
+        <ion-icon (click)="moveOnMenu()" style="color: #00a4f2;cursor: pointer;font-size: bold;" name="home"></ion-icon>
+        <img src="../../assets/img/Logo.png" style="width: 23vw;">
+        <section style="width: 7vw;"></section>
+       
+  </section>
+  <section style="width: 30%;height: 5vh;border-radius: 50px ;border-bottom: 1vh solid #00a4f2;position:absolute;bottom: 0;display: flex;align-items: center;justify-content: center; flex-direction: row">
+      <ion-icon style="color: #00a4f2;cursor: pointer;" name="return-up-forward"></ion-icon>
+      <p style="font-size: 12px;margin: 1px;">Depot</p>
+  </section>
+  </section>
+  </ion-header>
+  
+<ion-content>
+  <hr>
+  <section style="margin: 0 auto;width: 90%;display: flex;justify-content: space-between;align-items: center;flex-direction: row;">
+    <ion-button class="button_activate" id="emetteur" (click)="activate_emetteur()" style="width: 50%;font-size: 3vw;" expand="block">Emetteur</ion-button>
+    <ion-button class="button_activate" id="beneficiaire" (click)="activate_beneficiaire()" style="width: 50%;font-size: 3vw;"  expand="block">Beneficiaire</ion-button>
+  </section>
+  <form [formGroup]="formGroup" (ngSubmit)='presentModal()'>
+    <section style="margin: O auto;width: 90%;display: flex;justify-content: center;align-items: center;">
+      
+       <!--Emetteur Partie-->
+      <ion-list *ngIf="emetteur_actif" style="background-color: aliceblue;"> 
+        <ion-item >
+          <ion-label class="label" position="stacked">N° CNI</ion-label>
+          <ion-input placeholder="Numero Carte d'identité." formControlName="cniClient"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label class="label" position="stacked">Prénom</ion-label>
+          <ion-input placeholder="Prénom" formControlName="prenom"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label class="label" position="stacked">Nom</ion-label>
+          <ion-input class="pad"  placeholder="Nom" formControlName="nom"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label" position="stacked">Telephone</ion-label>
+          <ion-input placeholder="numero...." formControlName="numeroTelClient"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label class="label" position="stacked">Montant</ion-label>
+          <ion-input placeholder="numero...." [(ngModel)]="montant" (keyup)="updateSommes(montant)" formControlName="montant"></ion-input>
+        </ion-item>
+
+        <ion-item style="width:40%;float: left;">
+          <ion-label class="label" position="stacked">Frais</ion-label>
+          <ion-input value="Readonly" placeholder="frais" [ngModel]="frais" formControlName="frais"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label" position="stacked">Total</ion-label>
+          <ion-input placeholder="" [(ngModel)]="total" formControlName="total"></ion-input>
+        </ion-item>
+      </ion-list>
+      <!--Beneficiare Partie-->
+      <ion-list *ngIf="beneficiaire_actif" style="background-color: aliceblue;">
+        <ion-item>
+          <ion-label class="label" position="stacked">Prenom</ion-label>
+          <ion-input placeholder="Prenom" formControlName="prenombeneficiaire"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label" position="stacked">Nom</ion-label>
+          <ion-input placeholder="Nom" formControlName="nombeneficiaire"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label" position="stacked">Numero Tel</ion-label>
+          <ion-input placeholder="Telephone" formControlName="numeroTelBeneficiaire"></ion-input>
+        </ion-item>
+      </ion-list>
+    </section>
+    <hr>
+    <section *ngIf="emetteur_actif" style="width:100%;display: flex;justify-content: center;align-items: center;">
+      <ion-button class="sub" (click)="activate_beneficiaire()" expand="block" style="width: 70%;font-size: 3vw;"> SUivant</ion-button>
+    </section>
+    <section style="width:100%;display: flex;justify-content: center;align-items: center; ">
+      <!-- <ion-button *ngIf="beneficiaire_actif" [disabled]="!formGroup.valid" class="sub" expand="block" type="submit" style="width: 70%;font-size: 3vw;">Valider</ion-button> -->
+      <ion-button *ngIf="beneficiaire_actif" [disabled]="!formGroup.valid" class="sub" expand="block" type="submit" style="width: 70%;font-size: 3vw;">Valider</ion-button>
+    </section>
+    <hr>
+    <!-- <section *ngIf="errorLogin" style="margin: 0 auto;width: 90%;display: flex;justify-content: center;align-items: center;">
+      <ion-chip color="danger">
+        <ion-label color="danger">Mot de passe oublié?</ion-label>
+        <ion-icon name="arrow-forward-circle"></ion-icon>
+      </ion-chip>
+    </section> -->
+    
+  </form>
+  
+
+</ion-content>

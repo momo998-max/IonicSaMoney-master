@@ -1,0 +1,74 @@
+<ion-header>
+<section style="position: relative;width: 100%;background-color: aliceblue;height: 30vh;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+  <hr>
+  <section style="width: 100%;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+      <!-- <img src="../../assets/img/Vector-1.png" style="width: 7vw;"> -->
+      <ion-icon (click)="moveOnMenu()" style="color: #f21000;cursor: pointer;" name="menu"></ion-icon>
+      <img src="../../assets/img/Logo.png" style="width: 20vw;">
+      <img src="../../assets/img/profil.jpeg" style="width: 10vw;border-radius: 50px;">
+</section>
+<hr>
+<section style="width: 80%;display: flex;justify-content: space-around;align-items: center;flex-direction: row">
+  <section style="width: 80%;">
+    <p style="font-size: 12px;margin: 1px;">Mon solde disponible</p>
+    <p style="font-size: 7px;margin: 1px;display: flex;align-items: center;word-spacing: 3px;">
+       <strong *ngIf="displayMoney" style="color: #f22400;font-size: 15px;">{{solde}}</strong>
+       <strong *ngIf="!displayMoney" style="color: #f21c00;font-size: 15px;">*********</strong>
+       __FCFA</p>
+    <p style="font-size: 7px;margin: 1px;">Mise à jour le 22/02/21 à 13h:15</p>
+  </section>
+<ion-chip>
+  <ion-icon (click)="manageDisplayMoney()" *ngIf="displayMoney" style="color: #0a0a0a;" name="eye-off"></ion-icon>
+  <ion-icon (click)="manageDisplayMoney()" *ngIf="!displayMoney" style="color: #0a0a0a;" name="eye"></ion-icon>
+</ion-chip>
+</section>
+</section>
+</ion-header>
+
+<ion-content >
+  <ion-list lines="none">
+    <ion-item style="background-color: aliceblue;" (click)="moveOn('depot-emetteur')" button animated>
+      <ion-icon slot="start" name="return-up-forward" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Depot</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item style="background-color: aliceblue;" (click)="moveOn('retrait')" button animated>
+      <ion-icon slot="start" name="return-up-back" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Retrait</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item style="background-color: aliceblue;" (click)="moveOn('/tabs/transactions')" button animated>
+      <ion-icon slot="start" name="sync" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Mes transactions</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item style="background-color: aliceblue;" (click)="moveOn('/tabs/transactions')" button animated>
+      <ion-icon slot="start" name="sync-circle" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Toutes les transactions</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item style="background-color: aliceblue;" (click)="moveOn('/tabs/commissions')" button animated>
+      <ion-icon slot="start" name="color-filter" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Mes commissions</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item style="background-color: aliceblue;" (click)="moveOn('calcul-frais')" button animated>
+      <ion-icon slot="start" name="calculator" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Calculateur de frais</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item style="background-color: aliceblue;" (click)="disconnect()" button animated>
+      <ion-icon slot="start" name="arrow-back-circle" style="color: #FA4A0C"></ion-icon>
+      <ion-label >
+        <h3>Deconnexion</h3>
+      </ion-label>
+    </ion-item>
+      </ion-list>
+</ion-content>
+

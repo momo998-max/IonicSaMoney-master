@@ -1,0 +1,93 @@
+<ion-header>
+  <section style="position: relative;width: 100%;background-color: aliceblue;height: 25vh;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+    <section style="width: 100%;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+        <!-- <img src="../../assets/img/Vector-1.png" style="width: 7vw;"> -->
+        <ion-icon (click)="moveOnMenu()" style="color: #00a4f2;cursor: pointer;font-size: bold;" name="home"></ion-icon>
+        <img src="../../assets/img/Logo.png" style="width: 23vw;">
+        <section style="width: 7vw;"></section>
+       
+  </section>
+  <section style="width: 30%;height: 5vh;border-radius: 50px ;border-bottom: 1vh solid #00a4f2;position:absolute;bottom: 0;display: flex;align-items: center;justify-content: center; flex-direction: row">
+      <ion-icon (click)="moveOnMenu()" style="color: #00a4f2;cursor: pointer;" name="return-up-forward"></ion-icon>
+      <p style="font-size: 12px;margin: 1px;">Retrait</p>
+  </section>
+  </section>
+  </ion-header>
+
+  <ion-content>
+    <hr>
+   
+    <form [formGroup]="formGroup" (ngSubmit)='EffectuerRetrait()'>
+      <ion-item *ngIf="emetteur_actif" style="width: 80%;margin: 0 auto;">
+        <ion-label class="label" position="stacked">CODE</ion-label>
+        <ion-input placeholder="Code de transaction" (keyup)="requestCode(code)" [(ngModel)]="code" formControlName="code"></ion-input>
+      </ion-item>
+
+      <section style="margin: 0 auto;width: 90%;display: flex;justify-content: space-between;align-items: center;flex-direction: row;">
+        <ion-button class="button_activate" [disabled]="!beneficiaire_actif" id="emetteur" (click)="activate_emetteur()" style="width: 50%;font-size: 3vw;" expand="block">Emetteur</ion-button>
+        <ion-button class="button_activate" [disabled]="!emetteur_actif" id="beneficiaire" (click)="activate_beneficiaire()" style="width: 50%;font-size: 3vw;"  expand="block">Beneficiaire</ion-button>
+      </section>
+
+      <section style="margin: O auto;width: 90%;display: flex;justify-content: center;align-items: center;">
+        
+         <!--Emetteur Partie-->
+        <ion-list *ngIf="emetteur_actif" style="background-color: aliceblue;"> 
+          <ion-item >
+            <ion-label  class="label" position="stacked">N° CNI</ion-label>
+            <ion-input readonly placeholder="Numero Carte d'identité." [ngModel]="cniClient" formControlName="cniClient"></ion-input>
+          </ion-item>
+
+        
+  
+          <ion-item >
+            <ion-label class="label" position="stacked">Nom et Prénom</ion-label>
+            <ion-input readonly placeholder="Prénom" [ngModel]="nomCompletClient" formControlName="nomComplet"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label class="label" position="stacked">Telephone</ion-label>
+            <ion-input readonly placeholder="numero...." [ngModel]="numTelClient"  formControlName="telephone"></ion-input>
+          </ion-item>
+  
+          <ion-item >
+            <ion-label class="label" position="stacked">Montant</ion-label>
+            <ion-input readonly type="number" placeholder="montant" [ngModel]="montant" formControlName="montant"></ion-input>
+          </ion-item>
+        </ion-list>
+        <!--Beneficiare Partie-->
+        <ion-list *ngIf="beneficiaire_actif" style="background-color: aliceblue;">
+          <ion-item >
+            <ion-label  class="label" position="stacked">N° CNI</ion-label>
+            <ion-input placeholder="Numero Carte d'identité." formControlName="cniBeneficiaire"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="label" position="stacked">Prenom et Nom</ion-label>
+            <ion-input placeholder="Nom complet Beneficiaire" [ngModel]="nomCompletBeneficiaire"  formControlName="nomCompletBeneficiaire"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label class="label" position="stacked">Numero Tel</ion-label>
+            <ion-input placeholder="Telephone" [ngModel]="numTelBeneficiaire" formControlName="telbeneficiaire"></ion-input>
+          </ion-item>
+        </ion-list>
+      </section>
+      <hr>
+      <section *ngIf="emetteur_actif" style="width:100%;display: flex;justify-content: center;align-items: center;">
+        <ion-button class="sub" (click)="checkRetraitDone()" [disabled]="!code" expand="block" style="width: 70%;font-size: 3vw;">Verifier</ion-button>
+      </section>
+      <section style="width:100%;display: flex;justify-content: center;align-items: center; ">
+        <ion-button *ngIf="beneficiaire_actif" [disabled]="!formGroup.valid" class="sub" expand="block" type="submit" style="width: 70%;font-size: 3vw;">Confirmer</ion-button>
+      </section>
+      <hr>
+      <!-- <section *ngIf="errorLogin" style="margin: 0 auto;width: 90%;display: flex;justify-content: center;align-items: center;">
+        <ion-chip color="danger">
+          <ion-label color="danger">Mot de passe oublié?</ion-label>
+          <ion-icon name="arrow-forward-circle"></ion-icon>
+        </ion-chip>
+      </section> -->
+      
+    </form>
+    
+  
+  </ion-content>

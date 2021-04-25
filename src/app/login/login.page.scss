@@ -1,0 +1,28 @@
+ion-content.background{
+    --background:aliceblue;
+    --display:flex;
+    --justify-content:center;
+    --align-items:center;
+}
+
+ion-list, ion-item{
+    --background: aliceblue;
+    --color: #2f3f7d;
+}
+
+ion-button{
+    --background: #3bc1d1;
+    --background-hover: #3bc1d1;
+    --background-hover-opacity: 0.5;
+
+}
+
+
+ion-chips#errorLogin{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: small;
+    text-align: center;
+    background-color: inherit;
+}

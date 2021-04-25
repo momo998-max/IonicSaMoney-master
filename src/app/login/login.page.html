@@ -1,0 +1,59 @@
+<section style="position: relative;width: 100%;background-color: aliceblue;height: 35vh;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+  <img src="../../assets/img/Logo.png" style="width: 40vw;">
+  <hr>
+
+  <section style="position:absolute;bottom: 0;width: 100%;height: 8vh; display: flex;justify-content: center; align-items: center;flex-direction: column;"> 
+    <ion-chip color="tertiary" desabled style="background-color: #2f3f7d;color: #fff;">
+      <ion-label>LOGIN</ion-label>
+    </ion-chip>
+  </section>
+  
+</section>
+
+
+
+<ion-content class="background" >
+<form [formGroup]="formGroup" (ngSubmit)='loginProcess()'>
+
+  <section style="margin: 0 auto;width: 90%;height: 30vh;display: flex;justify-content: center;align-items: center;">
+    
+    <ion-list style="background-color: aliceblue;">
+     <section *ngIf="errorLogin" style="display: flex;align-items: center;background-color: aliceblue;">
+      <ion-row style="background-color: aliceblue;color: red;">
+        <ion-col>
+          <ion-chip color="danger">
+            Incorrecte(s)
+            <ion-icon name="alert-circle"></ion-icon>
+          </ion-chip>
+        </ion-col> 
+      </ion-row>
+    </section>
+
+   
+      <ion-item >
+        <ion-label position="stacked">Telephone</ion-label>
+        <ion-input id=telephone (keyup)="hide()" placeholder="numero...." formControlName="telephone"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input id="password" (keyup)="hide()" type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+  </section>
+  <hr>
+  <section style="width:100%;display: flex;justify-content: center;align-items: center;">
+    <ion-button [disabled]="!formGroup.valid" expand="block" type="submit" style="width: 70%;"> SE CONNECTER</ion-button>
+  </section>
+  <hr>
+  <section *ngIf="errorLogin" style="margin: 0 auto;width: 90%;display: flex;justify-content: center;align-items: center;">
+    <ion-chip color="danger">
+      <ion-label color="danger">Mot de passe oublié?</ion-label>
+      <ion-icon name="arrow-forward-circle"></ion-icon>
+    </ion-chip>
+  </section>
+  
+</form>
+
+
+</ion-content>

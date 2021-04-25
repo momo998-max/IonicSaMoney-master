@@ -1,0 +1,84 @@
+<ion-header>
+  <section style="position: relative;width: 100%;background-color: aliceblue;height: 25vh;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+    <hr>
+    <section style="width: 100%;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+        <!-- <img src="../../assets/img/Vector-1.png" style="width: 7vw;"> -->
+        <ion-icon (click)="moveOnMenu()" style="color: #00a4f2;cursor: pointer;font-size: bold;" name="home"></ion-icon>
+        <img src="../../assets/img/Logo.png" style="width: 23vw;">
+        <section style="width: 7vw;"></section>
+       
+  </section>
+  <hr>
+  <section style="display: flex;justify-content: center;align-items: center;flex-direction: row;width: 80%;">
+  
+      <section style="height: 5vh;border-bottom: 0.5vh solid #00a4f2;bottom: 0;display: flex;align-items: center;justify-content: center; flex-direction: row;cursor: pointer;">
+          <ion-icon (click)="moveOnMenu()" style="color: #00a4f2;width: 6vw;" name="color-filter"></ion-icon>
+          <p class="header-title">Mes commissions</p>
+      </section>
+
+  </section>
+</section>
+  </ion-header>
+
+<ion-content>
+  <form [formGroup]="formgroup" (onchange)="requestAgain()">
+  <table style="display: flex;flex-direction: row;align-items: center;width: 90%;">
+  <tr style="width: 33%;height: 7vh;">
+      <ion-select style="border: 1px solid #00a4f2;height: 100%;color: #00a4f2;" (ionChange)="requestAgain()" formControlName="type" placeholder="type">
+      <ion-select-option value="Tout">Tout</ion-select-option>
+        <ion-select-option *ngFor="let item of transactions" [value]="item.utilisateurAP">{{item.utilisateurAP.prenom}}</ion-select-option>
+      </ion-select>
+  </tr>
+   <tr style="flex-direction: row;display: flex;justify-content: center;align-items: center;width: 33%;height: 7vh;">
+    <ion-datetime style="color: #00a4f2;margin: 0;padding: 1vw;" displayFormat="MM/DD/YY" (ionChange)="requestAgain()"  formControlName="dateDebut"  placeholder="Debut"></ion-datetime>
+    <ion-icon style="background: #00a4f2;"  name="calendar-number"></ion-icon> 
+    </tr>
+    <tr style="flex-direction: row;display: flex;justify-content: center;align-items: center;width: 33%;height: 7vh;">
+      <ion-datetime style="color: #00a4f2;margin: 0;padding: 1vw;font-size: small;" (ionChange)="requestAgain()" formControlName="dateFin" displayFormat="MM/DD/YY"  placeholder="Fin"></ion-datetime>
+      <ion-icon style="background: #00a4f2;"  name="calendar-number"></ion-icon> 
+      </tr>
+ 
+  </table>
+  <hr>
+</form>
+
+ 
+ 
+      <table>
+        <tr>
+          <th>
+            Date
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Montant
+          </th>
+        </tr>
+        <tr *ngFor="let item of transactions">
+          <td>
+             {{ item.dateTransaction | date:'dd/MM/YY'}}
+          </td>
+          <td>
+            {{ item.type}}
+         </td>
+         <td *ngIf="item.type==='depot'">
+          {{ item.part_user_depot}}
+       </td>
+       <td *ngIf="item.type==='retrait'">
+        {{ item.part_user_retrait}}
+     </td>
+        </tr>
+      </table>
+
+
+  <section style="margin: 1vh auto;padding: 0;width:60%;display: flex;justify-content: space-between;align-items: center;flex-direction: row;font-size: 4vw;">
+    <ion-button class="total"  expand="block">
+        Total
+    </ion-button>
+    <ion-button class="somme"  expand="block">
+      567899876
+  </ion-button>
+  </section>
+</ion-content>

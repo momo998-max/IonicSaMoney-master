@@ -1,0 +1,36 @@
+ion-content{
+    --background: aliceblue;
+}
+
+ion-list, ion-item{
+    --background: aliceblue;
+    --color: #2f3f7d;
+    --margin: 0 auto;
+    font-size: 4vw;
+
+}
+
+ion-label.label{
+    font-size: 4vw;
+}
+
+ion-button.sub{
+    --background: #FA4A0C;
+    --color:#fff;
+}
+
+ion-button.button_activate{
+    --background:#00a4f2;
+    --color:#fff;
+}
+
+ion-input.pad{
+    padding-top: 0;
+}
+ion-input{
+    --padding-bottom:0;
+}
+
+.my-custom-class .alert-wrapper {
+    background: #e5e5e5;
+  }

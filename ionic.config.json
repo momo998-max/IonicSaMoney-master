@@ -1,0 +1,8 @@
+{
+  "name": "LebzoApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "d4767682"
+}

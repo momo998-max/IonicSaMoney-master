@@ -1,0 +1,62 @@
+table{
+    width: 100%;
+    background-color: aliceblue;
+}
+table{
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: aliceblue;
+}
+
+ion-content{
+    --background: aliceblue;
+}
+
+
+ion-datetime{
+    --background:red;
+    --padding-start:0
+}
+ion-select{
+    --background:blue;
+}
+td{
+    color: #324480;
+    font-size: 3vw;
+    text-align: center;
+    width: 20%;
+    height: 5vh;
+    font-weight: bold;
+    border-bottom: 1px solid #00a4f2;
+}
+
+th{
+    background-color: #00a4f2;
+    color: aliceblue;
+    font-size: 3vw;
+    text-align: center;
+    width: 33.3%;
+}
+ion-button.total{
+    width:50%;
+    font-size: 4vw;
+    --background: orangered;
+    color:aliceblue;
+    margin: 0;
+}
+ion-button.somme{
+    width:50%;
+    font-size: 4vw;
+    --background: aliceblue;
+    color:orangered;
+    border: 1px solid orangered;
+    border-radius: 25%;
+    margin: 0;
+}
+.header-title{
+    font-size: 4vw;
+    margin: 1px;
+    font-weight: bold;
+    color: #324480;
+}

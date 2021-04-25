@@ -1,0 +1,22 @@
+ion-content{
+    --background: aliceblue;
+}
+
+ion-button.total{
+    width:50%;
+    font-size: 4vw;
+    --background: orangered;
+    color:aliceblue;
+    margin: 0;
+}
+
+ion-list, ion-item{
+    --background: aliceblue;
+    --color: #2f3f7d;
+    --margin: 0 auto;
+    font-size: 4vw;
+}
+
+ion-select{
+    --background: aliceblue;
+}

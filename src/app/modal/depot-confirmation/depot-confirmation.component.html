@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar style="text-align: center;display: flex;justify-content: center;align-items: center;">
+    <ion-label style="margin:0 auto;font-size: 6vw;font-weight: bold;">
+      Confirmation
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+      <ion-item >
+        <ion-label>
+           <h6> EMETEUR</h6>
+            <h5>{{emetteur}}</h5>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+           <h6>NUMERO</h6>
+            <h5>{{telephoneClient}}</h5>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+           <h6>N° CNI </h6>
+            <h5>{{cni}}</h5>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+           <h6>Montant à Envoyer </h6>
+            <h5>{{montant}} FCFA</h5>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+           <h6>RECEPTEUR </h6>
+            <h5>{{recepteur}}</h5>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+           <h6>NUMERO</h6>
+            <h5>{{telephoneBeneficiaire}}</h5>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer>
+  <section style="display: flex;justify-content: space-between;align-items: center;flex-direction: row;">
+    <ion-button (click)="__dismiss(false)" class="footLeft">
+        Annuler
+    </ion-button>
+    <ion-button (click)="__dismiss(true)" class="footRight">
+      Confirmer
+  </ion-button>
+  </section>
+</ion-footer>

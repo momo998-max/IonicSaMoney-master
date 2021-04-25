@@ -1,0 +1,34 @@
+table{
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: aliceblue;
+}
+
+ion-content{
+    --background: aliceblue;
+}
+td{
+    color: #324480;
+    font-size: 3vw;
+    text-align: center;
+    width: 20%;
+    height: 5vh;
+    font-weight: bold;
+    border-bottom: 1px solid #00a4f2;
+}
+
+
+th{
+    background-color: #00a4f2;
+    color: aliceblue;
+    font-size: 3vw;
+    text-align: center;
+    width: 20%;
+}
+.header-title{
+    font-size: 3vw;
+    margin: 1px;
+    font-weight: bold;
+    color: #324480;
+}

@@ -1,0 +1,17 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "LebzoApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/snap/android-studio/current/android-studio/bin/studio.sh",
+  "server": {
+    "url": "http://localhost:8100"
+  }
+}
